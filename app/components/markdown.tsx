@@ -5,13 +5,22 @@ import RemarkBreaks from "remark-breaks";
 import RehypeKatex from "rehype-katex";
 import RemarkGfm from "remark-gfm";
 import RehypeHighlight from "rehype-highlight";
+<<<<<<< HEAD
 import { useRef, useState, RefObject, useEffect } from "react";
+=======
+import { useRef, useState, RefObject, useEffect, useMemo } from "react";
+>>>>>>> upstream/main
 import { copyToClipboard } from "../utils";
 import mermaid from "mermaid";
 
 import LoadingIcon from "../icons/three-dots.svg";
 import React from "react";
+<<<<<<< HEAD
 import { useDebouncedCallback, useThrottledCallback } from "use-debounce";
+=======
+import { useDebouncedCallback } from "use-debounce";
+import { showImageModal } from "./ui-lib";
+>>>>>>> upstream/main
 
 export function Mermaid(props: { code: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,11 +46,15 @@ export function Mermaid(props: { code: string }) {
     if (!svg) return;
     const text = new XMLSerializer().serializeToString(svg);
     const blob = new Blob([text], { type: "image/svg+xml" });
+<<<<<<< HEAD
     const url = URL.createObjectURL(blob);
     const win = window.open(url);
     if (win) {
       win.onload = () => URL.revokeObjectURL(url);
     }
+=======
+    showImageModal(URL.createObjectURL(blob));
+>>>>>>> upstream/main
   }
 
   if (hasError) {
@@ -102,7 +115,33 @@ export function PreCode(props: { children: any }) {
   );
 }
 
+<<<<<<< HEAD
 function _MarkDownContent(props: { content: string }) {
+=======
+function escapeDollarNumber(text: string) {
+  let escapedText = "";
+
+  for (let i = 0; i < text.length; i += 1) {
+    let char = text[i];
+    const nextChar = text[i + 1] || " ";
+
+    if (char === "$" && nextChar >= "0" && nextChar <= "9") {
+      char = "\\$";
+    }
+
+    escapedText += char;
+  }
+
+  return escapedText;
+}
+
+function _MarkDownContent(props: { content: string }) {
+  const escapedContent = useMemo(
+    () => escapeDollarNumber(props.content),
+    [props.content],
+  );
+
+>>>>>>> upstream/main
   return (
     <ReactMarkdown
       remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
@@ -118,6 +157,10 @@ function _MarkDownContent(props: { content: string }) {
       ]}
       components={{
         pre: PreCode,
+<<<<<<< HEAD
+=======
+        p: (pProps) => <p {...pProps} dir="auto" />,
+>>>>>>> upstream/main
         a: (aProps) => {
           const href = aProps.href || "";
           const isInternal = /^\/#/i.test(href);
@@ -126,7 +169,11 @@ function _MarkDownContent(props: { content: string }) {
         },
       }}
     >
+<<<<<<< HEAD
       {props.content}
+=======
+      {escapedContent}
+>>>>>>> upstream/main
     </ReactMarkdown>
   );
 }
@@ -143,6 +190,7 @@ export function Markdown(
   } & React.DOMAttributes<HTMLDivElement>,
 ) {
   const mdRef = useRef<HTMLDivElement>(null);
+<<<<<<< HEAD
   const renderedHeight = useRef(0);
   const renderedWidth = useRef(0);
   const inView = useRef(!!props.defaultShow);
@@ -187,19 +235,25 @@ export function Markdown(
   }, []);
 
   const getSize = (x: number) => (!inView.current && x > 0 ? x : "auto");
+=======
+>>>>>>> upstream/main
 
   return (
     <div
       className="markdown-body"
       style={{
         fontSize: `${props.fontSize ?? 14}px`,
+<<<<<<< HEAD
         height: getSize(renderedHeight.current),
         width: getSize(renderedWidth.current),
         direction: /[\u0600-\u06FF]/.test(props.content) ? "rtl" : "ltr",
+=======
+>>>>>>> upstream/main
       }}
       ref={mdRef}
       onContextMenu={props.onContextMenu}
       onDoubleClickCapture={props.onDoubleClickCapture}
+<<<<<<< HEAD
     >
       {inView.current &&
         (props.loading ? (
@@ -207,6 +261,15 @@ export function Markdown(
         ) : (
           <MarkdownContent content={props.content} />
         ))}
+=======
+      dir="auto"
+    >
+      {props.loading ? (
+        <LoadingIcon />
+      ) : (
+        <MarkdownContent content={props.content} />
+      )}
+>>>>>>> upstream/main
     </div>
   );
 }

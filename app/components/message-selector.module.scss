@@ -58,8 +58,13 @@
       }
 
       .body {
+<<<<<<< HEAD
         flex-grow: 1;
         max-width: calc(100% - 40px);
+=======
+        flex: 1;
+        max-width: calc(100% - 80px);
+>>>>>>> upstream/main
 
         .date {
           font-size: 12px;
@@ -71,6 +76,15 @@
           font-size: 12px;
         }
       }
+<<<<<<< HEAD
+=======
+
+      .checkbox {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+      }
+>>>>>>> upstream/main
     }
   }
 }

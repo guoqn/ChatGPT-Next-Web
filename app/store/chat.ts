@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+=======
+>>>>>>> upstream/main
 import { trimTopic } from "../utils";
 
 import Locale, { getLang } from "../locales";
@@ -10,24 +13,43 @@ import { createEmptyMask, Mask } from "./mask";
 import {
   DEFAULT_INPUT_TEMPLATE,
   DEFAULT_SYSTEM_TEMPLATE,
+<<<<<<< HEAD
   StoreKey,
+=======
+  KnowledgeCutOffDate,
+  StoreKey,
+  SUMMARIZE_MODEL,
+>>>>>>> upstream/main
 } from "../constant";
 import { api, RequestMessage } from "../client/api";
 import { ChatControllerPool } from "../client/controller";
 import { prettyObject } from "../utils/format";
 import { estimateTokenLength } from "../utils/token";
+<<<<<<< HEAD
+=======
+import { nanoid } from "nanoid";
+import { createPersistStore } from "../utils/store";
+>>>>>>> upstream/main
 
 export type ChatMessage = RequestMessage & {
   date: string;
   streaming?: boolean;
   isError?: boolean;
+<<<<<<< HEAD
   id?: number;
+=======
+  id: string;
+>>>>>>> upstream/main
   model?: ModelType;
 };
 
 export function createMessage(override: Partial<ChatMessage>): ChatMessage {
   return {
+<<<<<<< HEAD
     id: Date.now(),
+=======
+    id: nanoid(),
+>>>>>>> upstream/main
     date: new Date().toLocaleString(),
     role: "user",
     content: "",
@@ -42,7 +64,11 @@ export interface ChatStat {
 }
 
 export interface ChatSession {
+<<<<<<< HEAD
   id: number;
+=======
+  id: string;
+>>>>>>> upstream/main
   topic: string;
 
   memoryPrompt: string;
@@ -63,7 +89,11 @@ export const BOT_HELLO: ChatMessage = createMessage({
 
 function createEmptySession(): ChatSession {
   return {
+<<<<<<< HEAD
     id: Date.now() + Math.random(),
+=======
+    id: nanoid(),
+>>>>>>> upstream/main
     topic: DEFAULT_TOPIC,
     memoryPrompt: "",
     messages: [],
@@ -79,6 +109,7 @@ function createEmptySession(): ChatSession {
   };
 }
 
+<<<<<<< HEAD
 interface ChatStore {
   sessions: ChatSession[];
   currentSessionIndex: number;
@@ -105,6 +136,11 @@ interface ChatStore {
   getMemoryPrompt: () => ChatMessage;
 
   clearAllData: () => void;
+=======
+function getSummarizeModel(currentModel: string) {
+  // if it is using gpt-* models, force to use 3.5 to summarize
+  return currentModel.startsWith("gpt") ? SUMMARIZE_MODEL : currentModel;
+>>>>>>> upstream/main
 }
 
 function countMessages(msgs: ChatMessage[]) {
@@ -112,7 +148,15 @@ function countMessages(msgs: ChatMessage[]) {
 }
 
 function fillTemplateWith(input: string, modelConfig: ModelConfig) {
+<<<<<<< HEAD
   const vars = {
+=======
+  let cutoff =
+    KnowledgeCutOffDate[modelConfig.model] ?? KnowledgeCutOffDate.default;
+
+  const vars = {
+    cutoff,
+>>>>>>> upstream/main
     model: modelConfig.model,
     time: new Date().toLocaleString(),
     lang: getLang(),
@@ -134,6 +178,7 @@ function fillTemplateWith(input: string, modelConfig: ModelConfig) {
   return output;
 }
 
+<<<<<<< HEAD
 export const useChatStore = create<ChatStore>()(
   persist(
     (set, get) => ({
@@ -141,6 +186,24 @@ export const useChatStore = create<ChatStore>()(
       currentSessionIndex: 0,
       globalId: 0,
 
+=======
+const DEFAULT_CHAT_STATE = {
+  sessions: [createEmptySession()],
+  currentSessionIndex: 0,
+};
+
+export const useChatStore = createPersistStore(
+  DEFAULT_CHAT_STATE,
+  (set, _get) => {
+    function get() {
+      return {
+        ..._get(),
+        ...methods,
+      };
+    }
+
+    const methods = {
+>>>>>>> upstream/main
       clearSessions() {
         set(() => ({
           sessions: [createEmptySession()],
@@ -179,12 +242,18 @@ export const useChatStore = create<ChatStore>()(
         });
       },
 
+<<<<<<< HEAD
       newSession(mask) {
         const session = createEmptySession();
 
         set(() => ({ globalId: get().globalId + 1 }));
         session.id = get().globalId;
 
+=======
+      newSession(mask?: Mask) {
+        const session = createEmptySession();
+
+>>>>>>> upstream/main
         if (mask) {
           const config = useAppConfig.getState();
           const globalModelConfig = config.modelConfig;
@@ -205,14 +274,22 @@ export const useChatStore = create<ChatStore>()(
         }));
       },
 
+<<<<<<< HEAD
       nextSession(delta) {
+=======
+      nextSession(delta: number) {
+>>>>>>> upstream/main
         const n = get().sessions.length;
         const limit = (x: number) => (x + n) % n;
         const i = get().currentSessionIndex;
         get().selectSession(limit(i + delta));
       },
 
+<<<<<<< HEAD
       deleteSession(index) {
+=======
+      deleteSession(index: number) {
+>>>>>>> upstream/main
         const deletingLastSession = get().sessions.length === 1;
         const deletedSession = get().sessions.at(index);
 
@@ -269,7 +346,11 @@ export const useChatStore = create<ChatStore>()(
         return session;
       },
 
+<<<<<<< HEAD
       onNewMessage(message) {
+=======
+      onNewMessage(message: ChatMessage) {
+>>>>>>> upstream/main
         get().updateCurrentSession((session) => {
           session.messages = session.messages.concat();
           session.lastUpdate = Date.now();
@@ -278,7 +359,11 @@ export const useChatStore = create<ChatStore>()(
         get().summarizeSession();
       },
 
+<<<<<<< HEAD
       async onUserInput(content) {
+=======
+      async onUserInput(content: string) {
+>>>>>>> upstream/main
         const session = get().currentSession();
         const modelConfig = session.mask.modelConfig;
 
@@ -293,14 +378,20 @@ export const useChatStore = create<ChatStore>()(
         const botMessage: ChatMessage = createMessage({
           role: "assistant",
           streaming: true,
+<<<<<<< HEAD
           id: userMessage.id! + 1,
+=======
+>>>>>>> upstream/main
           model: modelConfig.model,
         });
 
         // get recent messages
         const recentMessages = get().getMessagesWithMemory();
         const sendMessages = recentMessages.concat(userMessage);
+<<<<<<< HEAD
         const sessionIndex = get().currentSessionIndex;
+=======
+>>>>>>> upstream/main
         const messageIndex = get().currentSession().messages.length + 1;
 
         // save user's and bot's message
@@ -334,6 +425,7 @@ export const useChatStore = create<ChatStore>()(
               botMessage.content = message;
               get().onNewMessage(botMessage);
             }
+<<<<<<< HEAD
             ChatControllerPool.remove(
               sessionIndex,
               botMessage.id ?? messageIndex,
@@ -342,6 +434,13 @@ export const useChatStore = create<ChatStore>()(
           onError(error) {
             const isAborted = error.message.includes("aborted");
             botMessage.content =
+=======
+            ChatControllerPool.remove(session.id, botMessage.id);
+          },
+          onError(error) {
+            const isAborted = error.message.includes("aborted");
+            botMessage.content +=
+>>>>>>> upstream/main
               "\n\n" +
               prettyObject({
                 error: true,
@@ -354,7 +453,11 @@ export const useChatStore = create<ChatStore>()(
               session.messages = session.messages.concat();
             });
             ChatControllerPool.remove(
+<<<<<<< HEAD
               sessionIndex,
+=======
+              session.id,
+>>>>>>> upstream/main
               botMessage.id ?? messageIndex,
             );
 
@@ -363,7 +466,11 @@ export const useChatStore = create<ChatStore>()(
           onController(controller) {
             // collect controller for stop/retry
             ChatControllerPool.addController(
+<<<<<<< HEAD
               sessionIndex,
+=======
+              session.id,
+>>>>>>> upstream/main
               botMessage.id ?? messageIndex,
               controller,
             );
@@ -395,8 +502,12 @@ export const useChatStore = create<ChatStore>()(
         const contextPrompts = session.mask.context.slice();
 
         // system prompts, to get close to OpenAI Web ChatGPT
+<<<<<<< HEAD
         // only will be injected if user does not use a mask or set none context prompts
         const shouldInjectSystemPrompts = contextPrompts.length === 0;
+=======
+        const shouldInjectSystemPrompts = modelConfig.enableInjectSystemPrompts;
+>>>>>>> upstream/main
         const systemPrompts = shouldInjectSystemPrompts
           ? [
               createMessage({
@@ -420,7 +531,11 @@ export const useChatStore = create<ChatStore>()(
           modelConfig.sendMemory &&
           session.memoryPrompt &&
           session.memoryPrompt.length > 0 &&
+<<<<<<< HEAD
           session.lastSummarizeIndex <= clearContextIndex;
+=======
+          session.lastSummarizeIndex > clearContextIndex;
+>>>>>>> upstream/main
         const longTermMemoryPrompts = shouldSendLongTermMemory
           ? [get().getMemoryPrompt()]
           : [];
@@ -489,6 +604,10 @@ export const useChatStore = create<ChatStore>()(
       },
 
       summarizeSession() {
+<<<<<<< HEAD
+=======
+        const config = useAppConfig.getState();
+>>>>>>> upstream/main
         const session = get().currentSession();
 
         // remove error messages if any
@@ -497,6 +616,10 @@ export const useChatStore = create<ChatStore>()(
         // should summarize topic after chating more than 50 words
         const SUMMARIZE_MIN_LEN = 50;
         if (
+<<<<<<< HEAD
+=======
+          config.enableAutoGenerateTitle &&
+>>>>>>> upstream/main
           session.topic === DEFAULT_TOPIC &&
           countMessages(messages) >= SUMMARIZE_MIN_LEN
         ) {
@@ -509,7 +632,11 @@ export const useChatStore = create<ChatStore>()(
           api.llm.chat({
             messages: topicMessages,
             config: {
+<<<<<<< HEAD
               model: "gpt-3.5-turbo",
+=======
+              model: getSummarizeModel(session.mask.modelConfig.model),
+>>>>>>> upstream/main
             },
             onFinish(message) {
               get().updateCurrentSession(
@@ -556,18 +683,40 @@ export const useChatStore = create<ChatStore>()(
           modelConfig.sendMemory
         ) {
           api.llm.chat({
+<<<<<<< HEAD
             messages: toBeSummarizedMsgs.concat({
               role: "system",
               content: Locale.Store.Prompt.Summarize,
               date: "",
             }),
             config: { ...modelConfig, stream: true },
+=======
+            messages: toBeSummarizedMsgs.concat(
+              createMessage({
+                role: "system",
+                content: Locale.Store.Prompt.Summarize,
+                date: "",
+              }),
+            ),
+            config: {
+              ...modelConfig,
+              stream: true,
+              model: getSummarizeModel(session.mask.modelConfig.model),
+            },
+>>>>>>> upstream/main
             onUpdate(message) {
               session.memoryPrompt = message;
             },
             onFinish(message) {
               console.log("[Memory] ", message);
+<<<<<<< HEAD
               session.lastSummarizeIndex = lastSummarizeIndex;
+=======
+              get().updateCurrentSession((session) => {
+                session.lastSummarizeIndex = lastSummarizeIndex;
+                session.memoryPrompt = message; // Update the memory prompt for stored it in local storage
+              });
+>>>>>>> upstream/main
             },
             onError(err) {
               console.error("[Summarize] ", err);
@@ -576,14 +725,22 @@ export const useChatStore = create<ChatStore>()(
         }
       },
 
+<<<<<<< HEAD
       updateStat(message) {
+=======
+      updateStat(message: ChatMessage) {
+>>>>>>> upstream/main
         get().updateCurrentSession((session) => {
           session.stat.charCount += message.content.length;
           // TODO: should update chat count and word count
         });
       },
 
+<<<<<<< HEAD
       updateCurrentSession(updater) {
+=======
+      updateCurrentSession(updater: (session: ChatSession) => void) {
+>>>>>>> upstream/main
         const sessions = get().sessions;
         const index = get().currentSessionIndex;
         updater(sessions[index]);
@@ -594,6 +751,7 @@ export const useChatStore = create<ChatStore>()(
         localStorage.clear();
         location.reload();
       },
+<<<<<<< HEAD
     }),
     {
       name: StoreKey.Chat,
@@ -622,4 +780,62 @@ export const useChatStore = create<ChatStore>()(
       },
     },
   ),
+=======
+    };
+
+    return methods;
+  },
+  {
+    name: StoreKey.Chat,
+    version: 3.1,
+    migrate(persistedState, version) {
+      const state = persistedState as any;
+      const newState = JSON.parse(
+        JSON.stringify(state),
+      ) as typeof DEFAULT_CHAT_STATE;
+
+      if (version < 2) {
+        newState.sessions = [];
+
+        const oldSessions = state.sessions;
+        for (const oldSession of oldSessions) {
+          const newSession = createEmptySession();
+          newSession.topic = oldSession.topic;
+          newSession.messages = [...oldSession.messages];
+          newSession.mask.modelConfig.sendMemory = true;
+          newSession.mask.modelConfig.historyMessageCount = 4;
+          newSession.mask.modelConfig.compressMessageLengthThreshold = 1000;
+          newState.sessions.push(newSession);
+        }
+      }
+
+      if (version < 3) {
+        // migrate id to nanoid
+        newState.sessions.forEach((s) => {
+          s.id = nanoid();
+          s.messages.forEach((m) => (m.id = nanoid()));
+        });
+      }
+
+      // Enable `enableInjectSystemPrompts` attribute for old sessions.
+      // Resolve issue of old sessions not automatically enabling.
+      if (version < 3.1) {
+        newState.sessions.forEach((s) => {
+          if (
+            // Exclude those already set by user
+            !s.mask.modelConfig.hasOwnProperty("enableInjectSystemPrompts")
+          ) {
+            // Because users may have changed this configuration,
+            // the user's current configuration is used instead of the default
+            const config = useAppConfig.getState();
+            s.mask.modelConfig.enableInjectSystemPrompts =
+              config.modelConfig.enableInjectSystemPrompts;
+          }
+        });
+      }
+
+      return newState as any;
+    },
+  },
+>>>>>>> upstream/main
 );

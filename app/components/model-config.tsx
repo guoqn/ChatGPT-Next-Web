@@ -1,13 +1,26 @@
+<<<<<<< HEAD
 import { ALL_MODELS, ModalConfigValidator, ModelConfig } from "../store";
+=======
+import { ModalConfigValidator, ModelConfig } from "../store";
+>>>>>>> upstream/main
 
 import Locale from "../locales";
 import { InputRange } from "./input-range";
 import { ListItem, Select } from "./ui-lib";
+<<<<<<< HEAD
+=======
+import { useAllModels } from "../utils/hooks";
+>>>>>>> upstream/main
 
 export function ModelConfigList(props: {
   modelConfig: ModelConfig;
   updateConfig: (updater: (config: ModelConfig) => void) => void;
 }) {
+<<<<<<< HEAD
+=======
+  const allModels = useAllModels();
+
+>>>>>>> upstream/main
   return (
     <>
       <ListItem title={Locale.Settings.Model}>
@@ -22,11 +35,21 @@ export function ModelConfigList(props: {
             );
           }}
         >
+<<<<<<< HEAD
           {ALL_MODELS.map((v) => (
             <option value={v.name} key={v.name} disabled={!v.available}>
               {v.name}
             </option>
           ))}
+=======
+          {allModels
+            .filter((v) => v.available)
+            .map((v, i) => (
+              <option value={v.name} key={i}>
+                {v.displayName}
+              </option>
+            ))}
+>>>>>>> upstream/main
         </Select>
       </ListItem>
       <ListItem
@@ -49,13 +72,40 @@ export function ModelConfigList(props: {
         ></InputRange>
       </ListItem>
       <ListItem
+<<<<<<< HEAD
+=======
+        title={Locale.Settings.TopP.Title}
+        subTitle={Locale.Settings.TopP.SubTitle}
+      >
+        <InputRange
+          value={(props.modelConfig.top_p ?? 1).toFixed(1)}
+          min="0"
+          max="1"
+          step="0.1"
+          onChange={(e) => {
+            props.updateConfig(
+              (config) =>
+                (config.top_p = ModalConfigValidator.top_p(
+                  e.currentTarget.valueAsNumber,
+                )),
+            );
+          }}
+        ></InputRange>
+      </ListItem>
+      <ListItem
+>>>>>>> upstream/main
         title={Locale.Settings.MaxTokens.Title}
         subTitle={Locale.Settings.MaxTokens.SubTitle}
       >
         <input
           type="number"
+<<<<<<< HEAD
           min={100}
           max={32000}
+=======
+          min={1024}
+          max={512000}
+>>>>>>> upstream/main
           value={props.modelConfig.max_tokens}
           onChange={(e) =>
             props.updateConfig(
@@ -110,6 +160,25 @@ export function ModelConfigList(props: {
       </ListItem>
 
       <ListItem
+<<<<<<< HEAD
+=======
+        title={Locale.Settings.InjectSystemPrompts.Title}
+        subTitle={Locale.Settings.InjectSystemPrompts.SubTitle}
+      >
+        <input
+          type="checkbox"
+          checked={props.modelConfig.enableInjectSystemPrompts}
+          onChange={(e) =>
+            props.updateConfig(
+              (config) =>
+                (config.enableInjectSystemPrompts = e.currentTarget.checked),
+            )
+          }
+        ></input>
+      </ListItem>
+
+      <ListItem
+>>>>>>> upstream/main
         title={Locale.Settings.InputTemplate.Title}
         subTitle={Locale.Settings.InputTemplate.SubTitle}
       >
@@ -132,7 +201,11 @@ export function ModelConfigList(props: {
           title={props.modelConfig.historyMessageCount.toString()}
           value={props.modelConfig.historyMessageCount}
           min="0"
+<<<<<<< HEAD
           max="32"
+=======
+          max="64"
+>>>>>>> upstream/main
           step="1"
           onChange={(e) =>
             props.updateConfig(

@@ -9,8 +9,13 @@ export const BUILTIN_MASK_ID = 100000;
 
 export const BUILTIN_MASK_STORE = {
   buildinId: BUILTIN_MASK_ID,
+<<<<<<< HEAD
   masks: {} as Record<number, BuiltinMask>,
   get(id?: number) {
+=======
+  masks: {} as Record<string, BuiltinMask>,
+  get(id?: string) {
+>>>>>>> upstream/main
     if (!id) return undefined;
     return this.masks[id] as Mask | undefined;
   },

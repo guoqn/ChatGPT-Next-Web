@@ -1,6 +1,12 @@
 import cn from "./cn";
 import en from "./en";
+<<<<<<< HEAD
 import tw from "./tw";
+=======
+import pt from "./pt";
+import tw from "./tw";
+import id from "./id";
+>>>>>>> upstream/main
 import fr from "./fr";
 import es from "./es";
 import it from "./it";
@@ -13,6 +19,10 @@ import no from "./no";
 import cs from "./cs";
 import ko from "./ko";
 import ar from "./ar";
+<<<<<<< HEAD
+=======
+import bn from "./bn";
+>>>>>>> upstream/main
 import { merge } from "../utils/merge";
 
 import type { LocaleType } from "./cn";
@@ -22,8 +32,15 @@ const ALL_LANGS = {
   cn,
   en,
   tw,
+<<<<<<< HEAD
   jp,
   ko,
+=======
+  pt,
+  jp,
+  ko,
+  id,
+>>>>>>> upstream/main
   fr,
   es,
   it,
@@ -34,6 +51,10 @@ const ALL_LANGS = {
   cs,
   no,
   ar,
+<<<<<<< HEAD
+=======
+  bn,
+>>>>>>> upstream/main
 };
 
 export type Lang = keyof typeof ALL_LANGS;
@@ -43,9 +64,17 @@ export const AllLangs = Object.keys(ALL_LANGS) as Lang[];
 export const ALL_LANG_OPTIONS: Record<Lang, string> = {
   cn: "简体中文",
   en: "English",
+<<<<<<< HEAD
   tw: "繁體中文",
   jp: "日本語",
   ko: "한국어",
+=======
+  pt: "Português",
+  tw: "繁體中文",
+  jp: "日本語",
+  ko: "한국어",
+  id: "Indonesia",
+>>>>>>> upstream/main
   fr: "Français",
   es: "Español",
   it: "Italiano",
@@ -56,6 +85,10 @@ export const ALL_LANG_OPTIONS: Record<Lang, string> = {
   cs: "Čeština",
   no: "Nynorsk",
   ar: "العربية",
+<<<<<<< HEAD
+=======
+  bn: "বাংলা",
+>>>>>>> upstream/main
 };
 
 const LANG_KEY = "lang";
@@ -113,3 +146,16 @@ export function changeLang(lang: Lang) {
   setItem(LANG_KEY, lang);
   location.reload();
 }
+<<<<<<< HEAD
+=======
+
+export function getISOLang() {
+  const isoLangString: Record<string, string> = {
+    cn: "zh-Hans",
+    tw: "zh-Hant",
+  };
+
+  const lang = getLang();
+  return isoLangString[lang] ?? lang;
+}
+>>>>>>> upstream/main

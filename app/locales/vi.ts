@@ -71,6 +71,14 @@ const vi: PartialLocaleType = {
       Title: "Font chữ",
       SubTitle: "Thay đổi font chữ của nội dung trò chuyện",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Tiêm Prompt Hệ thống",
+      SubTitle:
+        "Bắt buộc thêm một prompt hệ thống giả lập ChatGPT ở đầu danh sách tin nhắn cho mỗi yêu cầu",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Phiên bản: ${x}`,
       IsLatest: "Phiên bản mới nhất",
@@ -87,8 +95,15 @@ const vi: PartialLocaleType = {
       SubTitle: "Xem trước nội dung markdown bằng bong bóng",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Mask Splash Screen",
       SubTitle: "Chớp màn hình khi bắt đầu cuộc trò chuyện mới",
+=======
+      Splash: {
+        Title: "Mask Splash Screen",
+        SubTitle: "Chớp màn hình khi bắt đầu cuộc trò chuyện mới",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -116,11 +131,15 @@ const vi: PartialLocaleType = {
       Title: "Ngưỡng nén lịch sử tin nhắn",
       SubTitle: "Thực hiện nén nếu số lượng tin nhắn chưa nén vượt quá ngưỡng",
     },
+<<<<<<< HEAD
     Token: {
       Title: "API Key",
       SubTitle: "Sử dụng khóa của bạn để bỏ qua giới hạn mã truy cập",
       Placeholder: "OpenAI API Key",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Hạn mức tài khoản",
       SubTitle(used: any, total: any) {
@@ -130,11 +149,15 @@ const vi: PartialLocaleType = {
       Check: "Kiểm tra",
       NoAccess: "Nhập API Key để kiểm tra hạn mức",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Mã truy cập",
       SubTitle: "Đã bật kiểm soát truy cập",
       Placeholder: "Nhập mã truy cập",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Mô hình",
     Temperature: {
       Title: "Tính ngẫu nhiên (temperature)",
@@ -179,6 +202,12 @@ const vi: PartialLocaleType = {
   Plugin: {
     Name: "Plugin",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Bạn là một trợ lý",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Mẫu",
     Page: {

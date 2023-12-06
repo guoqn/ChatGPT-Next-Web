@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable @next/next/no-img-element */
+>>>>>>> upstream/main
 import styles from "./ui-lib.module.scss";
 import LoadingIcon from "../icons/three-dots.svg";
 import CloseIcon from "../icons/close.svg";
@@ -6,6 +10,11 @@ import EyeOffIcon from "../icons/eye-off.svg";
 import DownIcon from "../icons/down.svg";
 import ConfirmIcon from "../icons/confirm.svg";
 import CancelIcon from "../icons/cancel.svg";
+<<<<<<< HEAD
+=======
+import MaxIcon from "../icons/max.svg";
+import MinIcon from "../icons/min.svg";
+>>>>>>> upstream/main
 
 import Locale from "../locales";
 
@@ -44,9 +53,19 @@ export function ListItem(props: {
   children?: JSX.Element | JSX.Element[];
   icon?: JSX.Element;
   className?: string;
+<<<<<<< HEAD
 }) {
   return (
     <div className={styles["list-item"] + ` ${props.className || ""}`}>
+=======
+  onClick?: () => void;
+}) {
+  return (
+    <div
+      className={styles["list-item"] + ` ${props.className || ""}`}
+      onClick={props.onClick}
+    >
+>>>>>>> upstream/main
       <div className={styles["list-header"]}>
         {props.icon && <div className={styles["list-icon"]}>{props.icon}</div>}
         <div className={styles["list-item-title"]}>
@@ -63,6 +82,7 @@ export function ListItem(props: {
   );
 }
 
+<<<<<<< HEAD
 export function List(props: {
   children:
     | Array<JSX.Element | null | undefined>
@@ -71,6 +91,14 @@ export function List(props: {
     | undefined;
 }) {
   return <div className={styles.list}>{props.children}</div>;
+=======
+export function List(props: { children: React.ReactNode; id?: string }) {
+  return (
+    <div className={styles.list} id={props.id}>
+      {props.children}
+    </div>
+  );
+>>>>>>> upstream/main
 }
 
 export function Loading() {
@@ -92,7 +120,13 @@ export function Loading() {
 interface ModalProps {
   title: string;
   children?: any;
+<<<<<<< HEAD
   actions?: JSX.Element[];
+=======
+  actions?: React.ReactNode[];
+  defaultMax?: boolean;
+  footer?: React.ReactNode;
+>>>>>>> upstream/main
   onClose?: () => void;
 }
 export function Modal(props: ModalProps) {
@@ -111,6 +145,7 @@ export function Modal(props: ModalProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+<<<<<<< HEAD
   return (
     <div className={styles["modal-container"]}>
       <div className={styles["modal-header"]}>
@@ -118,12 +153,42 @@ export function Modal(props: ModalProps) {
 
         <div className={styles["modal-close-btn"]} onClick={props.onClose}>
           <CloseIcon />
+=======
+  const [isMax, setMax] = useState(!!props.defaultMax);
+
+  return (
+    <div
+      className={
+        styles["modal-container"] + ` ${isMax && styles["modal-container-max"]}`
+      }
+    >
+      <div className={styles["modal-header"]}>
+        <div className={styles["modal-title"]}>{props.title}</div>
+
+        <div className={styles["modal-header-actions"]}>
+          <div
+            className={styles["modal-header-action"]}
+            onClick={() => setMax(!isMax)}
+          >
+            {isMax ? <MinIcon /> : <MaxIcon />}
+          </div>
+          <div
+            className={styles["modal-header-action"]}
+            onClick={props.onClose}
+          >
+            <CloseIcon />
+          </div>
+>>>>>>> upstream/main
         </div>
       </div>
 
       <div className={styles["modal-content"]}>{props.children}</div>
 
       <div className={styles["modal-footer"]}>
+<<<<<<< HEAD
+=======
+        {props.footer}
+>>>>>>> upstream/main
         <div className={styles["modal-actions"]}>
           {props.actions?.map((action, i) => (
             <div key={i} className={styles["modal-action"]}>
@@ -321,6 +386,10 @@ export function showConfirm(content: any) {
 function PromptInput(props: {
   value: string;
   onChange: (value: string) => void;
+<<<<<<< HEAD
+=======
+  rows?: number;
+>>>>>>> upstream/main
 }) {
   const [input, setInput] = useState(props.value);
   const onInput = (value: string) => {
@@ -334,11 +403,19 @@ function PromptInput(props: {
       autoFocus
       value={input}
       onInput={(e) => onInput(e.currentTarget.value)}
+<<<<<<< HEAD
+=======
+      rows={props.rows ?? 3}
+>>>>>>> upstream/main
     ></textarea>
   );
 }
 
+<<<<<<< HEAD
 export function showPrompt(content: any, value = "") {
+=======
+export function showPrompt(content: any, value = "", rows = 3) {
+>>>>>>> upstream/main
   const div = document.createElement("div");
   div.className = "modal-mask";
   document.body.appendChild(div);
@@ -350,7 +427,11 @@ export function showPrompt(content: any, value = "") {
   };
 
   return new Promise<string>((resolve) => {
+<<<<<<< HEAD
     let userInput = "";
+=======
+    let userInput = value;
+>>>>>>> upstream/main
 
     root.render(
       <Modal
@@ -386,8 +467,81 @@ export function showPrompt(content: any, value = "") {
         <PromptInput
           onChange={(val) => (userInput = val)}
           value={value}
+<<<<<<< HEAD
+=======
+          rows={rows}
+>>>>>>> upstream/main
         ></PromptInput>
       </Modal>,
     );
   });
 }
+<<<<<<< HEAD
+=======
+
+export function showImageModal(img: string) {
+  showModal({
+    title: Locale.Export.Image.Modal,
+    children: (
+      <div>
+        <img
+          src={img}
+          alt="preview"
+          style={{
+            maxWidth: "100%",
+          }}
+        ></img>
+      </div>
+    ),
+  });
+}
+
+export function Selector<T>(props: {
+  items: Array<{
+    title: string;
+    subTitle?: string;
+    value: T;
+  }>;
+  defaultSelectedValue?: T;
+  onSelection?: (selection: T[]) => void;
+  onClose?: () => void;
+  multiple?: boolean;
+}) {
+  return (
+    <div className={styles["selector"]} onClick={() => props.onClose?.()}>
+      <div className={styles["selector-content"]}>
+        <List>
+          {props.items.map((item, i) => {
+            const selected = props.defaultSelectedValue === item.value;
+            return (
+              <ListItem
+                className={styles["selector-item"]}
+                key={i}
+                title={item.title}
+                subTitle={item.subTitle}
+                onClick={() => {
+                  props.onSelection?.([item.value]);
+                  props.onClose?.();
+                }}
+              >
+                {selected ? (
+                  <div
+                    style={{
+                      height: 10,
+                      width: 10,
+                      backgroundColor: "var(--primary)",
+                      borderRadius: 10,
+                    }}
+                  ></div>
+                ) : (
+                  <></>
+                )}
+              </ListItem>
+            );
+          })}
+        </List>
+      </div>
+    </div>
+  );
+}
+>>>>>>> upstream/main

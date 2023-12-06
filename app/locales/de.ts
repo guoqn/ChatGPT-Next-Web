@@ -5,7 +5,11 @@ const de: PartialLocaleType = {
   WIP: "In Bearbeitung...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Unbefugter Zugriff, bitte geben Sie den Zugangscode auf der Einstellungsseite ein.",
+=======
+      "Unbefugter Zugriff, bitte geben Sie den Zugangscode auf der [Einstellungsseite](/#/auth) ein.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} Nachrichten`,
@@ -71,6 +75,14 @@ const de: PartialLocaleType = {
       Title: "Schriftgröße",
       SubTitle: "Schriftgröße des Chat-Inhalts anpassen",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "System-Prompts einfügen",
+      SubTitle:
+        "Erzwingt das Hinzufügen eines simulierten systemweiten Prompts von ChatGPT am Anfang der Nachrichtenliste bei jeder Anfrage",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Version: ${x}`,
       IsLatest: "Neueste Version",
@@ -87,8 +99,15 @@ const de: PartialLocaleType = {
       SubTitle: "Preview markdown in bubble",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Mask Splash Screen",
       SubTitle: "Show a mask splash screen before starting new chat",
+=======
+      Splash: {
+        Title: "Mask Splash Screen",
+        SubTitle: "Show a mask splash screen before starting new chat",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -117,12 +136,16 @@ const de: PartialLocaleType = {
       SubTitle:
         "Komprimierung, wenn die Länge der unkomprimierten Nachrichten den Wert überschreitet",
     },
+<<<<<<< HEAD
     Token: {
       Title: "API-Schlüssel",
       SubTitle:
         "Verwenden Sie Ihren Schlüssel, um das Zugangscode-Limit zu ignorieren",
       Placeholder: "OpenAI API-Schlüssel",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Kontostand",
       SubTitle(used: any, total: any) {
@@ -132,11 +155,14 @@ const de: PartialLocaleType = {
       Check: "Erneut prüfen",
       NoAccess: "API-Schlüssel eingeben, um den Kontostand zu überprüfen",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Zugangscode",
       SubTitle: "Zugangskontrolle aktiviert",
       Placeholder: "Zugangscode erforderlich",
     },
+=======
+>>>>>>> upstream/main
     Model: "Modell",
     Temperature: {
       Title: "Temperature", //Temperatur
@@ -185,6 +211,12 @@ const de: PartialLocaleType = {
   Plugin: {
     Name: "Plugin",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Du bist ein Assistent, der",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Mask",
     Page: {

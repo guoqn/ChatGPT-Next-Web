@@ -14,10 +14,18 @@
     padding: 4px 10px;
     animation: slide-in ease 0.3s;
     box-shadow: var(--card-shadow);
+<<<<<<< HEAD
     transition: all ease 0.3s;
     align-items: center;
     height: 16px;
     width: var(--icon-width);
+=======
+    transition: width ease 0.3s;
+    align-items: center;
+    height: 16px;
+    width: var(--icon-width);
+    overflow: hidden;
+>>>>>>> upstream/main
 
     &:not(:last-child) {
       margin-right: 5px;
@@ -29,14 +37,26 @@
       opacity: 0;
       transform: translateX(-5px);
       transition: all ease 0.3s;
+<<<<<<< HEAD
       transition-delay: 0.1s;
+=======
+>>>>>>> upstream/main
       pointer-events: none;
     }
 
     &:hover {
+<<<<<<< HEAD
       width: var(--full-width);
 
       .text {
+=======
+      --delay: 0.5s;
+      width: var(--full-width);
+      transition-delay: var(--delay);
+
+      .text {
+        transition-delay: var(--delay);
+>>>>>>> upstream/main
         opacity: 1;
         transform: translate(0);
       }
@@ -95,11 +115,48 @@
 }
 
 .context-prompt {
+<<<<<<< HEAD
+=======
+  .context-prompt-insert {
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    opacity: 0.2;
+    transition: all ease 0.3s;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    &:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+>>>>>>> upstream/main
   .context-prompt-row {
     display: flex;
     justify-content: center;
     width: 100%;
+<<<<<<< HEAD
     margin-bottom: 10px;
+=======
+
+    &:hover {
+      .context-drag {
+        opacity: 1;
+      }
+    }
+
+    .context-drag {
+      display: flex;
+      align-items: center;
+      opacity: 0.5;
+      transition: all ease 0.3s;
+    }
+>>>>>>> upstream/main
 
     .context-role {
       margin-right: 10px;
@@ -212,6 +269,10 @@
 .chat-body {
   flex: 1;
   overflow: auto;
+<<<<<<< HEAD
+=======
+  overflow-x: hidden;
+>>>>>>> upstream/main
   padding: 20px;
   padding-bottom: 40px;
   position: relative;
@@ -239,6 +300,7 @@
   &:last-child {
     animation: slide-in ease 0.3s;
   }
+<<<<<<< HEAD
 
   &:hover {
     .chat-message-actions {
@@ -252,11 +314,44 @@
       opacity: 0.2;
     }
   }
+=======
+>>>>>>> upstream/main
 }
 
 .chat-message-user {
   display: flex;
   flex-direction: row-reverse;
+<<<<<<< HEAD
+=======
+
+  .chat-message-header {
+    flex-direction: row-reverse;
+  }
+}
+
+.chat-message-header {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+
+  .chat-message-actions {
+    display: flex;
+    box-sizing: border-box;
+    font-size: 12px;
+    align-items: flex-end;
+    justify-content: space-between;
+    transition: all ease 0.3s;
+    transform: scale(0.9) translateY(5px);
+    margin: 0 10px;
+    opacity: 0;
+    pointer-events: none;
+
+    .chat-input-actions {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+>>>>>>> upstream/main
 }
 
 .chat-message-container {
@@ -269,6 +364,15 @@
     .chat-message-edit {
       opacity: 0.9;
     }
+<<<<<<< HEAD
+=======
+
+    .chat-message-actions {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) translateY(0);
+    }
+>>>>>>> upstream/main
   }
 }
 
@@ -277,7 +381,10 @@
 }
 
 .chat-message-avatar {
+<<<<<<< HEAD
   margin-top: 20px;
+=======
+>>>>>>> upstream/main
   position: relative;
 
   .chat-message-edit {
@@ -295,6 +402,17 @@
       padding: 7px;
     }
   }
+<<<<<<< HEAD
+=======
+  /* Specific styles for iOS devices */
+  @media screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+    @supports (-webkit-touch-callout: none) {
+      .chat-message-edit {
+        top: -8%;
+      }
+    }
+  }
+>>>>>>> upstream/main
 }
 
 .chat-message-status {
@@ -317,6 +435,7 @@
   border: var(--border-in-light);
   position: relative;
   transition: all ease 0.3s;
+<<<<<<< HEAD
 
   .chat-message-actions {
     display: flex;
@@ -338,6 +457,8 @@
       flex-wrap: nowrap;
     }
   }
+=======
+>>>>>>> upstream/main
 }
 
 .chat-message-action-date {

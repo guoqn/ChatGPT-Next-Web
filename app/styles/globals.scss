@@ -89,7 +89,11 @@
 html {
   height: var(--full-height);
 
+<<<<<<< HEAD
   font-family: "Noto Sans SC", "SF Pro SC", "SF Pro Text", "SF Pro Icons",
+=======
+  font-family: "Noto Sans", "SF Pro SC", "SF Pro Text", "SF Pro Icons",
+>>>>>>> upstream/main
     "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -105,6 +109,10 @@ body {
   align-items: center;
   user-select: none;
   touch-action: pan-x pan-y;
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+>>>>>>> upstream/main
 
   @media only screen and (max-width: 600px) {
     background-color: var(--second);
@@ -348,7 +356,11 @@ pre {
   justify-content: center;
   border: var(--border-in-light);
   box-shadow: var(--card-shadow);
+<<<<<<< HEAD
   border-radius: 10px;
+=======
+  border-radius: 11px;
+>>>>>>> upstream/main
 }
 
 .one-line {
@@ -356,3 +368,10 @@ pre {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+<<<<<<< HEAD
+=======
+
+.copyable {
+  user-select: text;
+}
+>>>>>>> upstream/main

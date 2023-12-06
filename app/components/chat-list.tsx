@@ -18,6 +18,10 @@ import { MaskAvatar } from "./mask";
 import { Mask } from "../store/mask";
 import { useRef, useEffect } from "react";
 import { showConfirm } from "./ui-lib";
+<<<<<<< HEAD
+=======
+import { useMobileScreen } from "../utils";
+>>>>>>> upstream/main
 
 export function ChatItem(props: {
   onClick?: () => void;
@@ -26,7 +30,11 @@ export function ChatItem(props: {
   count: number;
   time: string;
   selected: boolean;
+<<<<<<< HEAD
   id: number;
+=======
+  id: string;
+>>>>>>> upstream/main
   index: number;
   narrow?: boolean;
   mask: Mask;
@@ -60,7 +68,14 @@ export function ChatItem(props: {
           {props.narrow ? (
             <div className={styles["chat-item-narrow"]}>
               <div className={styles["chat-item-avatar"] + " no-dark"}>
+<<<<<<< HEAD
                 <MaskAvatar mask={props.mask} />
+=======
+                <MaskAvatar
+                  avatar={props.mask.avatar}
+                  model={props.mask.modelConfig.model}
+                />
+>>>>>>> upstream/main
               </div>
               <div className={styles["chat-item-narrow-count"]}>
                 {props.count}
@@ -80,7 +95,15 @@ export function ChatItem(props: {
 
           <div
             className={styles["chat-item-delete"]}
+<<<<<<< HEAD
             onClickCapture={props.onDelete}
+=======
+            onClickCapture={(e) => {
+              props.onDelete?.();
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+>>>>>>> upstream/main
           >
             <DeleteIcon />
           </div>
@@ -101,6 +124,10 @@ export function ChatList(props: { narrow?: boolean }) {
   );
   const chatStore = useChatStore();
   const navigate = useNavigate();
+<<<<<<< HEAD
+=======
+  const isMobileScreen = useMobileScreen();
+>>>>>>> upstream/main
 
   const onDragEnd: OnDragEndResponder = (result) => {
     const { destination, source } = result;
@@ -142,7 +169,11 @@ export function ChatList(props: { narrow?: boolean }) {
                 }}
                 onDelete={async () => {
                   if (
+<<<<<<< HEAD
                     !props.narrow ||
+=======
+                    (!props.narrow && !isMobileScreen) ||
+>>>>>>> upstream/main
                     (await showConfirm(Locale.Home.DeleteChat))
                   ) {
                     chatStore.deleteSession(i);

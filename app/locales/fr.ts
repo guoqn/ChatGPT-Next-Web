@@ -5,7 +5,11 @@ const fr: PartialLocaleType = {
   WIP: "Prochainement...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Accès non autorisé, veuillez saisir le code d'accès dans la page des paramètres.",
+=======
+      "Accès non autorisé, veuillez saisir le code d'accès dans la [page](/#/auth) des paramètres.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} messages en total`,
@@ -20,6 +24,34 @@ const fr: PartialLocaleType = {
       Stop: "Arrêter",
       Retry: "Réessayer",
       Delete: "Supprimer",
+<<<<<<< HEAD
+=======
+      Pin: "Épingler",
+      PinToastContent: "Épingler 2 messages à des messages contextuels",
+      PinToastAction: "Voir",
+      Edit: "Modifier",
+    },
+    Commands: {
+      new: "Commencer une nouvelle conversation",
+      newm: "Démarrer une nouvelle conversation avec un assistant",
+      next: "Conversation suivante",
+      prev: "Conversation précédente",
+      clear: "Effacer le contexte",
+      del: "Supprimer la Conversation",
+    },
+    InputActions: {
+      Stop: "Stop",
+      ToBottom: "Au dernier",
+      Theme: {
+        auto: "Auto",
+        light: "Thème clair",
+        dark: "Thème sombre",
+      },
+      Prompt: "Instructions",
+      Masks: "Assistants",
+      Clear: "Effacer le contexte",
+      Settings: "Réglages",
+>>>>>>> upstream/main
     },
     Rename: "Renommer la conversation",
     Typing: "En train d'écrire…",
@@ -61,7 +93,25 @@ const fr: PartialLocaleType = {
   Settings: {
     Title: "Paramètres",
     SubTitle: "Toutes les configurations",
+<<<<<<< HEAD
 
+=======
+    Danger: {
+      Reset: {
+        Title: "Restaurer les paramètres",
+        SubTitle: "Restaurer les paramètres par défaut",
+        Action: "Reinitialiser",
+        Confirm: "Confirmer la réinitialisation des paramètres?",
+      },
+      Clear: {
+        Title: "Supprimer toutes les données",
+        SubTitle:
+          "Effacer toutes les données, y compris les conversations et les paramètres",
+        Action: "Supprimer",
+        Confirm: "Confirmer la suppression de toutes les données?",
+      },
+    },
+>>>>>>> upstream/main
     Lang: {
       Name: "Language", // ATTENTION : si vous souhaitez ajouter une nouvelle traduction, ne traduisez pas cette valeur, laissez-la sous forme de `Language`
       All: "Toutes les langues",
@@ -72,6 +122,18 @@ const fr: PartialLocaleType = {
       Title: "Taille des polices",
       SubTitle: "Ajuste la taille de police du contenu de la conversation",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Injecter des invites système",
+      SubTitle:
+        "Ajoute de force une invite système simulée de ChatGPT au début de la liste des messages pour chaque demande",
+    },
+    InputTemplate: {
+      Title: "Template",
+      SubTitle: "Le message le plus récent sera ajouté à ce template.",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Version : ${x}`,
       IsLatest: "Dernière version",
@@ -88,9 +150,21 @@ const fr: PartialLocaleType = {
       SubTitle: "Aperçu du Markdown dans une bulle",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Écran de masque",
       SubTitle:
         "Afficher un écran de masque avant de démarrer une nouvelle discussion",
+=======
+      Splash: {
+        Title: "Écran de masque",
+        SubTitle:
+          "Afficher un écran de masque avant de démarrer une nouvelle discussion",
+      },
+      Builtin: {
+        Title: "Masquer Les Assistants Intégrés",
+        SubTitle: "Masquer les assistants intégrés par défaut",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -119,11 +193,15 @@ const fr: PartialLocaleType = {
       SubTitle:
         "Comprimera si la longueur des messages non compressés dépasse cette valeur",
     },
+<<<<<<< HEAD
     Token: {
       Title: "Clé API",
       SubTitle: "Utilisez votre clé pour ignorer la limite du code d'accès",
       Placeholder: "Clé OpenAI API",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Solde du compte",
       SubTitle(used: any, total: any) {
@@ -133,18 +211,32 @@ const fr: PartialLocaleType = {
       Check: "Vérifier",
       NoAccess: "Entrez la clé API pour vérifier le solde",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Code d'accès",
       SubTitle: "Contrôle d'accès activé",
       Placeholder: "Code d'accès requis",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Modèle",
     Temperature: {
       Title: "Température",
       SubTitle: "Une valeur plus élevée rendra les réponses plus aléatoires",
     },
+<<<<<<< HEAD
     MaxTokens: {
       Title: "Max Tokens",
+=======
+    TopP: {
+      Title: "Top P",
+      SubTitle:
+        "Ne modifiez pas à moins que vous ne sachiez ce que vous faites",
+    },
+    MaxTokens: {
+      Title: "Limite de Tokens",
+>>>>>>> upstream/main
       SubTitle: "Longueur maximale des tokens d'entrée et des tokens générés",
     },
     PresencePenalty: {
@@ -185,6 +277,12 @@ const fr: PartialLocaleType = {
   Plugin: {
     Name: "Extension",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Eres un asistente que",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Masque",
     Page: {
@@ -208,14 +306,37 @@ const fr: PartialLocaleType = {
       Clone: "Dupliquer",
     },
     Config: {
+<<<<<<< HEAD
       Avatar: "Avatar du bot",
       Name: "Nom du bot",
+=======
+      Avatar: "Avatar de lassistant",
+      Name: "Nom de lassistant",
+      Sync: {
+        Title: "Utiliser la configuration globale",
+        SubTitle: "Utiliser la configuration globale dans cette conversation",
+        Confirm: "Voulez-vous definir votre configuration personnalisée ?",
+      },
+      HideContext: {
+        Title: "Masquer les invites contextuelles",
+        SubTitle: "Ne pas afficher les instructions contextuelles dans le chat",
+      },
+      Share: {
+        Title: "Partager ce masque",
+        SubTitle: "Générer un lien vers ce masque",
+        Action: "Copier le lien",
+      },
+>>>>>>> upstream/main
     },
   },
   NewChat: {
     Return: "Retour",
     Skip: "Passer",
+<<<<<<< HEAD
     Title: "Choisir un masque",
+=======
+    Title: "Choisir un assitant",
+>>>>>>> upstream/main
     SubTitle: "Discutez avec l'âme derrière le masque",
     More: "En savoir plus",
     NotShow: "Ne pas afficher à nouveau",

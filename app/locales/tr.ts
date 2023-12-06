@@ -5,7 +5,11 @@ const tr: PartialLocaleType = {
   WIP: "Çalışma devam ediyor...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Yetkisiz erişim, lütfen erişim kodunu ayarlar sayfasından giriniz.",
+=======
+      "Yetkisiz erişim, lütfen erişim kodunu ayarlar [sayfasından](/#/auth) giriniz.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} mesaj`,
@@ -71,6 +75,14 @@ const tr: PartialLocaleType = {
       Title: "Yazı Boyutu",
       SubTitle: "Sohbet içeriğinin yazı boyutunu ayarlayın",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Sistem İpucu Ekleyin",
+      SubTitle:
+        "Her istek için ileti listesinin başına simüle edilmiş bir ChatGPT sistem ipucu ekleyin",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Sürüm: ${x}`,
       IsLatest: "En son sürüm",
@@ -87,8 +99,15 @@ const tr: PartialLocaleType = {
       SubTitle: "Preview markdown in bubble",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Mask Splash Screen",
       SubTitle: "Show a mask splash screen before starting new chat",
+=======
+      Splash: {
+        Title: "Mask Splash Screen",
+        SubTitle: "Show a mask splash screen before starting new chat",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -117,11 +136,15 @@ const tr: PartialLocaleType = {
       SubTitle:
         "Sıkıştırılmamış mesajların uzunluğu bu değeri aşarsa sıkıştırılır",
     },
+<<<<<<< HEAD
     Token: {
       Title: "API Anahtarı",
       SubTitle: "Erişim kodu sınırını yoksaymak için anahtarınızı kullanın",
       Placeholder: "OpenAI API Anahtarı",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Hesap Bakiyesi",
       SubTitle(used: any, total: any) {
@@ -131,11 +154,15 @@ const tr: PartialLocaleType = {
       Check: "Tekrar Kontrol Et",
       NoAccess: "Bakiyeyi kontrol etmek için API anahtarını girin",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Erişim Kodu",
       SubTitle: "Erişim kontrolü etkinleştirme",
       Placeholder: "Erişim Kodu Gerekiyor",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Model",
     Temperature: {
       Title: "Gerçeklik",
@@ -184,6 +211,12 @@ const tr: PartialLocaleType = {
   Plugin: {
     Name: "Plugin",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Sen bir asistansın",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Mask",
     Page: {

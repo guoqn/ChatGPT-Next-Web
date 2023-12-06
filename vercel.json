@@ -1,6 +1,7 @@
 {
     "github": {
         "silent": true
+<<<<<<< HEAD
     },
     "headers": [
         {
@@ -21,4 +22,7 @@
             ]
         }
     ]
+=======
+    }
+>>>>>>> upstream/main
 }

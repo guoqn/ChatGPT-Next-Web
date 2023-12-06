@@ -5,7 +5,11 @@ const cs: PartialLocaleType = {
   WIP: "V přípravě...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Neoprávněný přístup, zadejte přístupový kód na stránce nastavení.",
+=======
+      "Neoprávněný přístup, zadejte přístupový kód na [stránce](/#/auth) nastavení.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} zpráv`,
@@ -71,6 +75,14 @@ const cs: PartialLocaleType = {
       Title: "Velikost písma",
       SubTitle: "Nastavení velikosti písma obsahu chatu",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Vložit systémové prompty",
+      SubTitle:
+        "Vynutit přidání simulovaného systémového promptu ChatGPT na začátek seznamu zpráv každého požadavku",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Verze: ${x}`,
       IsLatest: "Aktuální verze",
@@ -87,8 +99,15 @@ const cs: PartialLocaleType = {
       SubTitle: "Zobrazit v náhledu bubliny",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Úvodní obrazovka Masek",
       SubTitle: "Před zahájením nového chatu zobrazte úvodní obrazovku Masek",
+=======
+      Splash: {
+        Title: "Úvodní obrazovka Masek",
+        SubTitle: "Před zahájením nového chatu zobrazte úvodní obrazovku Masek",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -117,11 +136,15 @@ const cs: PartialLocaleType = {
       SubTitle:
         "Komprese proběhne, pokud délka nekomprimovaných zpráv přesáhne tuto hodnotu",
     },
+<<<<<<< HEAD
     Token: {
       Title: "API klíč",
       SubTitle: "Použitím klíče ignorujete omezení přístupového kódu",
       Placeholder: "Klíč API OpenAI",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Stav účtu",
       SubTitle(used: any, total: any) {
@@ -131,11 +154,15 @@ const cs: PartialLocaleType = {
       Check: "Zkontrolovat",
       NoAccess: "Pro kontrolu zůstatku zadejte klíč API",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Přístupový kód",
       SubTitle: "Kontrola přístupu povolena",
       Placeholder: "Potřebujete přístupový kód",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Model",
     Temperature: {
       Title: "Teplota",
@@ -181,6 +208,12 @@ const cs: PartialLocaleType = {
   Plugin: {
     Name: "Plugin",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Jste asistent, který",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Maska",
     Page: {

@@ -10,6 +10,10 @@ const ar: PartialLocaleType = {
   Auth: {
     Title: "تحتاج إلى رمز الوصول",
     Tips: "يرجى إدخال رمز الوصول أدناه",
+<<<<<<< HEAD
+=======
+    SubTips: "أو أدخل مفتاح واجهة برمجة تطبيقات OpenAI الخاص بك",
+>>>>>>> upstream/main
     Input: "رمز الوصول",
     Confirm: "تأكيد",
     Later: "لاحقًا",
@@ -110,6 +114,14 @@ const ar: PartialLocaleType = {
       Title: "حجم الخط",
       SubTitle: "ضبط حجم الخط لمحتوى الدردشة",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "حقن تلميحات النظام",
+      SubTitle:
+        "قم بإضافة تلميحة نظام محاكاة ChatGPT إلى بداية قائمة الرسائل المُطلَبة في كل طلب",
+    },
+>>>>>>> upstream/main
     InputTemplate: {
       Title: "نموذج الإدخال",
       SubTitle: "سيتم ملء أحدث رسالة في هذا النموذج",
@@ -130,8 +142,15 @@ const ar: PartialLocaleType = {
       SubTitle: "معاينة Markdown في فقاعة",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "شاشة تظهر الأقنعة",
       SubTitle: "عرض شاشة تظهر الأقنعة قبل بدء الدردشة الجديدة",
+=======
+      Splash: {
+        Title: "شاشة تظهر الأقنعة",
+        SubTitle: "عرض شاشة تظهر الأقنعة قبل بدء الدردشة الجديدة",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -159,11 +178,15 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
       Title: "حد الضغط للتاريخ",
       SubTitle: "سيتم الضغط إذا تجاوزت طول الرسائل غير المضغوطة الحد المحدد",
     },
+<<<<<<< HEAD
     Token: {
       Title: "مفتاح API",
       SubTitle: "استخدم مفتاحك لتجاوز حد رمز الوصول",
       Placeholder: "مفتاح OpenAI API",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "رصيد الحساب",
       SubTitle(used: any, total: any) {
@@ -173,6 +196,7 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
       Check: "التحقق",
       NoAccess: "أدخل مفتاح API للتحقق من الرصيد",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "رمز الوصول",
       SubTitle: "تم تمكين التحكم في الوصول",
@@ -182,6 +206,9 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
       Title: "نقطة النهاية",
       SubTitle: "يجب أن تبدأ نقطة النهاية المخصصة بـ http(s)://",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "النموذج",
     Temperature: {
       Title: "الحرارة",
@@ -226,6 +253,12 @@ ${builtin} مدمجة، ${custom} تم تعريفها من قبل المستخد
   Plugin: {
     Name: "المكوّن الإضافي",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "أنت مساعد ي",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "الأقنعة",
     Page: {

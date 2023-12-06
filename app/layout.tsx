@@ -3,8 +3,14 @@ import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
+<<<<<<< HEAD
 
 export const metadata = {
+=======
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+>>>>>>> upstream/main
   title: "ChatGPT Next Web",
   description: "Your personal ChatGPT Chat Bot.",
   viewport: {

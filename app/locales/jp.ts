@@ -19,7 +19,16 @@ const jp: PartialLocaleType = {
       Copy: "コピー",
       Stop: "停止",
       Retry: "リトライ",
+<<<<<<< HEAD
       Delete: "削除",
+=======
+      Pin: "ピン",
+      PinToastContent:
+        "コンテキストプロンプトに1つのメッセージをピン留めしました",
+      PinToastAction: "表示",
+      Delete: "削除",
+      Edit: "編集",
+>>>>>>> upstream/main
     },
     Rename: "チャットの名前を変更",
     Typing: "入力中…",
@@ -33,7 +42,11 @@ const jp: PartialLocaleType = {
     Send: "送信",
     Config: {
       Reset: "リセット",
+<<<<<<< HEAD
       SaveAs: "另存为面具",
+=======
+      SaveAs: "保存",
+>>>>>>> upstream/main
     },
   },
   Export: {
@@ -61,7 +74,24 @@ const jp: PartialLocaleType = {
   Settings: {
     Title: "設定",
     SubTitle: "設定オプション",
+<<<<<<< HEAD
 
+=======
+    Danger: {
+      Reset: {
+        Title: "設定をリセット",
+        SubTitle: "すべての設定項目をデフォルトにリセットします",
+        Action: "今すぐリセットする",
+        Confirm: "すべての設定項目をリセットしてもよろしいですか？",
+      },
+      Clear: {
+        Title: "データを消去",
+        SubTitle: "すべてのチャット履歴と設定を消去します",
+        Action: "今すぐ消去する",
+        Confirm: "すべてのチャット履歴と設定を消去しますか？",
+      },
+    },
+>>>>>>> upstream/main
     Lang: {
       Name: "Language", // ATTENTION: if you wanna add a new translation, please do not translate this value, leave it as `Language`
       All: "全ての言語",
@@ -71,7 +101,19 @@ const jp: PartialLocaleType = {
       Title: "フォントサイズ",
       SubTitle: "チャット内容のフォントサイズ",
     },
+<<<<<<< HEAD
 
+=======
+    InjectSystemPrompts: {
+      Title: "システムプロンプトの挿入",
+      SubTitle:
+        "各リクエストのメッセージリストの先頭に、ChatGPTのシステムプロンプトを強制的に追加します",
+    },
+    InputTemplate: {
+      Title: "入力の前処理",
+      SubTitle: "新規入力がこのテンプレートに埋め込まれます",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `現在のバージョン：${x}`,
       IsLatest: "最新バージョンです",
@@ -88,8 +130,15 @@ const jp: PartialLocaleType = {
       SubTitle: "プレビューバブルでマークダウンコンテンツをプレビュー",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "キャラクターページ",
       SubTitle: "新規チャット作成時にキャラクターページを表示する",
+=======
+      Splash: {
+        Title: "キャラクターページ",
+        SubTitle: "新規チャット作成時にキャラクターページを表示する",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -119,11 +168,15 @@ const jp: PartialLocaleType = {
       SubTitle:
         "圧縮されていない履歴メッセージがこの値を超えた場合、圧縮が行われます。",
     },
+<<<<<<< HEAD
     Token: {
       Title: "APIキー",
       SubTitle: "自分のキーを使用してパスワードアクセス制限を迂回する",
       Placeholder: "OpenAI APIキー",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "残高照会",
       SubTitle(used: any, total: any) {
@@ -133,11 +186,15 @@ const jp: PartialLocaleType = {
       Check: "再確認",
       NoAccess: "APIキーまたはアクセスパスワードを入力して残高を表示",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "アクセスパスワード",
       SubTitle: "暗号化アクセスが有効になっています",
       Placeholder: "アクセスパスワードを入力してください",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "モデル (model)",
     Temperature: {
       Title: "ランダム性 (temperature)",
@@ -181,6 +238,10 @@ const jp: PartialLocaleType = {
     Add: "追加",
   },
   Plugin: { Name: "プラグイン" },
+<<<<<<< HEAD
+=======
+  FineTuned: { Sysmessage: "あなたはアシスタントです" },
+>>>>>>> upstream/main
   Mask: {
     Name: "キャラクタープリセット",
     Page: {

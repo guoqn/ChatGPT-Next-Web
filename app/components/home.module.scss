@@ -6,7 +6,11 @@
   color: var(--black);
   background-color: var(--white);
   min-width: 600px;
+<<<<<<< HEAD
   min-height: 480px;
+=======
+  min-height: 370px;
+>>>>>>> upstream/main
   max-width: 1200px;
 
   display: flex;
@@ -61,16 +65,35 @@
       }
     }
   }
+<<<<<<< HEAD
 }
 
 .sidebar-drag {
   $width: 10px;
+=======
+
+  &:hover,
+  &:active {
+    .sidebar-drag {
+      background-color: rgba($color: #000000, $alpha: 0.01);
+
+      svg {
+        opacity: 0.2;
+      }
+    }
+  }
+}
+
+.sidebar-drag {
+  $width: 14px;
+>>>>>>> upstream/main
 
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
   width: $width;
+<<<<<<< HEAD
   background-color: var(--black);
   cursor: ew-resize;
   opacity: 0;
@@ -79,6 +102,17 @@
   &:hover,
   &:active {
     opacity: 0.2;
+=======
+  background-color: rgba($color: #000000, $alpha: 0);
+  cursor: ew-resize;
+  transition: all ease 0.3s;
+  display: flex;
+  align-items: center;
+
+  svg {
+    opacity: 0;
+    margin-left: -2px;
+>>>>>>> upstream/main
   }
 }
 
@@ -162,6 +196,10 @@
   user-select: none;
   border: 2px solid transparent;
   position: relative;
+<<<<<<< HEAD
+=======
+  content-visibility: auto;
+>>>>>>> upstream/main
 }
 
 .chat-item:hover {

@@ -20,19 +20,52 @@ const nextConfig = {
       );
     }
 
+<<<<<<< HEAD
+=======
+    config.resolve.fallback = {
+      child_process: false,
+    };
+
+>>>>>>> upstream/main
     return config;
   },
   output: mode,
   images: {
     unoptimized: mode === "export",
   },
+<<<<<<< HEAD
 };
 
+=======
+  experimental: {
+    forceSwcTransforms: true,
+  },
+};
+
+const CorsHeaders = [
+  { key: "Access-Control-Allow-Credentials", value: "true" },
+  { key: "Access-Control-Allow-Origin", value: "*" },
+  {
+    key: "Access-Control-Allow-Methods",
+    value: "*",
+  },
+  {
+    key: "Access-Control-Allow-Headers",
+    value: "*",
+  },
+  {
+    key: "Access-Control-Max-Age",
+    value: "86400",
+  },
+];
+
+>>>>>>> upstream/main
 if (mode !== "export") {
   nextConfig.headers = async () => {
     return [
       {
         source: "/api/:path*",
+<<<<<<< HEAD
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
@@ -49,6 +82,9 @@ if (mode !== "export") {
             value: "86400",
           },
         ],
+=======
+        headers: CorsHeaders,
+>>>>>>> upstream/main
       },
     ];
   };
@@ -69,6 +105,7 @@ if (mode !== "export") {
       },
     ];
 
+<<<<<<< HEAD
     const apiUrl = process.env.API_URL;
     if (apiUrl) {
       console.log("[Next] using api url ", apiUrl);
@@ -78,6 +115,8 @@ if (mode !== "export") {
       });
     }
 
+=======
+>>>>>>> upstream/main
     return {
       beforeFiles: ret,
     };

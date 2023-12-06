@@ -1,5 +1,9 @@
 import { getClientConfig } from "../config/client";
+<<<<<<< HEAD
 import { ACCESS_CODE_PREFIX } from "../constant";
+=======
+import { ACCESS_CODE_PREFIX, Azure, ServiceProvider } from "../constant";
+>>>>>>> upstream/main
 import { ChatMessage, ModelType, useAccessStore } from "../store";
 import { ChatGPTApi } from "./platforms/openai";
 
@@ -38,9 +42,21 @@ export interface LLMUsage {
   total: number;
 }
 
+<<<<<<< HEAD
 export abstract class LLMApi {
   abstract chat(options: ChatOptions): Promise<void>;
   abstract usage(): Promise<LLMUsage>;
+=======
+export interface LLMModel {
+  name: string;
+  available: boolean;
+}
+
+export abstract class LLMApi {
+  abstract chat(options: ChatOptions): Promise<void>;
+  abstract usage(): Promise<LLMUsage>;
+  abstract models(): Promise<LLMModel[]>;
+>>>>>>> upstream/main
 }
 
 type ProviderName = "openai" | "azure" | "claude" | "palm";
@@ -93,7 +109,11 @@ export class ClientApi {
     // 敬告二开开发者们，为了开源大模型的发展，请不要修改上述消息，此消息用于后续数据清洗使用
     // Please do not modify this message
 
+<<<<<<< HEAD
     console.log("[Share]", msgs);
+=======
+    console.log("[Share]", messages, msgs);
+>>>>>>> upstream/main
     const clientConfig = getClientConfig();
     const proxyUrl = "/sharegpt";
     const rawUrl = "https://sharegpt.com/api/conversations";
@@ -121,22 +141,43 @@ export const api = new ClientApi();
 
 export function getHeaders() {
   const accessStore = useAccessStore.getState();
+<<<<<<< HEAD
   let headers: Record<string, string> = {
+=======
+  const headers: Record<string, string> = {
+>>>>>>> upstream/main
     "Content-Type": "application/json",
     "x-requested-with": "XMLHttpRequest",
   };
 
+<<<<<<< HEAD
   const makeBearer = (token: string) => `Bearer ${token.trim()}`;
   const validString = (x: string) => x && x.length > 0;
 
   // use user's api key first
   if (validString(accessStore.token)) {
     headers.Authorization = makeBearer(accessStore.token);
+=======
+  const isAzure = accessStore.provider === ServiceProvider.Azure;
+  const authHeader = isAzure ? "api-key" : "Authorization";
+  const apiKey = isAzure ? accessStore.azureApiKey : accessStore.openaiApiKey;
+
+  const makeBearer = (s: string) => `${isAzure ? "" : "Bearer "}${s.trim()}`;
+  const validString = (x: string) => x && x.length > 0;
+
+  // use user's api key first
+  if (validString(apiKey)) {
+    headers[authHeader] = makeBearer(apiKey);
+>>>>>>> upstream/main
   } else if (
     accessStore.enabledAccessControl() &&
     validString(accessStore.accessCode)
   ) {
+<<<<<<< HEAD
     headers.Authorization = makeBearer(
+=======
+    headers[authHeader] = makeBearer(
+>>>>>>> upstream/main
       ACCESS_CODE_PREFIX + accessStore.accessCode,
     );
   }

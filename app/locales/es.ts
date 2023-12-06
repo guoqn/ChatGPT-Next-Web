@@ -5,7 +5,11 @@ const es: PartialLocaleType = {
   WIP: "En construcción...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Acceso no autorizado, por favor ingrese el código de acceso en la página de configuración.",
+=======
+      "Acceso no autorizado, por favor ingrese el código de acceso en la [página](/#/auth) de configuración.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} mensajes`,
@@ -71,6 +75,14 @@ const es: PartialLocaleType = {
       Title: "Tamaño de fuente",
       SubTitle: "Ajustar el tamaño de fuente del contenido del chat",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Inyectar Prompts del Sistema",
+      SubTitle:
+        "Agregar forzosamente un prompt de sistema simulado de ChatGPT al comienzo de la lista de mensajes en cada solicitud",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Versión: ${x}`,
       IsLatest: "Última versión",
@@ -87,8 +99,15 @@ const es: PartialLocaleType = {
       SubTitle: "Preview markdown in bubble",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Mask Splash Screen",
       SubTitle: "Show a mask splash screen before starting new chat",
+=======
+      Splash: {
+        Title: "Mask Splash Screen",
+        SubTitle: "Show a mask splash screen before starting new chat",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -117,11 +136,15 @@ const es: PartialLocaleType = {
       SubTitle:
         "Se comprimirán los mensajes si la longitud de los mensajes no comprimidos supera el valor",
     },
+<<<<<<< HEAD
     Token: {
       Title: "Clave de API",
       SubTitle: "Utiliza tu clave para ignorar el límite de código de acceso",
       Placeholder: "Clave de la API de OpenAI",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Saldo de la cuenta",
       SubTitle(used: any, total: any) {
@@ -131,11 +154,15 @@ const es: PartialLocaleType = {
       Check: "Comprobar de nuevo",
       NoAccess: "Introduzca la clave API para comprobar el saldo",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Código de acceso",
       SubTitle: "Control de acceso habilitado",
       Placeholder: "Necesita código de acceso",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Modelo",
     Temperature: {
       Title: "Temperatura",
@@ -183,6 +210,12 @@ const es: PartialLocaleType = {
   Plugin: {
     Name: "Plugin",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Eres un asistente que",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Mask",
     Page: {

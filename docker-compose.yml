@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 version: '3.9'
 services:
   chatgpt-next-web: 
+=======
+version: "3.9"
+services:
+  chatgpt-next-web:
+>>>>>>> upstream/main
     profiles: ["no-proxy"]
     container_name: chatgpt-next-web
     image: yidadaa/chatgpt-next-web
@@ -13,8 +19,16 @@ services:
       - OPENAI_ORG_ID=$OPENAI_ORG_ID
       - HIDE_USER_API_KEY=$HIDE_USER_API_KEY
       - DISABLE_GPT4=$DISABLE_GPT4
+<<<<<<< HEAD
 
   chatgpt-next-web-proxy: 
+=======
+      - ENABLE_BALANCE_QUERY=$ENABLE_BALANCE_QUERY
+      - DISABLE_FAST_LINK=$DISABLE_FAST_LINK
+      - OPENAI_SB=$OPENAI_SB
+
+  chatgpt-next-web-proxy:
+>>>>>>> upstream/main
     profiles: ["proxy"]
     container_name: chatgpt-next-web-proxy
     image: yidadaa/chatgpt-next-web
@@ -28,3 +42,9 @@ services:
       - OPENAI_ORG_ID=$OPENAI_ORG_ID
       - HIDE_USER_API_KEY=$HIDE_USER_API_KEY
       - DISABLE_GPT4=$DISABLE_GPT4
+<<<<<<< HEAD
+=======
+      - ENABLE_BALANCE_QUERY=$ENABLE_BALANCE_QUERY
+      - DISABLE_FAST_LINK=$DISABLE_FAST_LINK
+      - OPENAI_SB=$OPENAI_SB
+>>>>>>> upstream/main

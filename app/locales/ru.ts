@@ -5,7 +5,11 @@ const ru: PartialLocaleType = {
   WIP: "Скоро...",
   Error: {
     Unauthorized:
+<<<<<<< HEAD
       "Несанкционированный доступ. Пожалуйста, введите код доступа на странице настроек.",
+=======
+      "Несанкционированный доступ. Пожалуйста, введите код доступа на [странице](/#/auth) настроек.",
+>>>>>>> upstream/main
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} сообщений`,
@@ -71,6 +75,14 @@ const ru: PartialLocaleType = {
       Title: "Размер шрифта",
       SubTitle: "Настроить размер шрифта контента чата",
     },
+<<<<<<< HEAD
+=======
+    InjectSystemPrompts: {
+      Title: "Вставить системные подсказки",
+      SubTitle:
+        "Принудительно добавить симулированную системную подсказку ChatGPT в начало списка сообщений для каждого запроса",
+    },
+>>>>>>> upstream/main
     Update: {
       Version: (x: string) => `Версия: ${x}`,
       IsLatest: "Последняя версия",
@@ -87,8 +99,15 @@ const ru: PartialLocaleType = {
       SubTitle: "Предварительный просмотр markdown в пузыре",
     },
     Mask: {
+<<<<<<< HEAD
       Title: "Экран заставки маски",
       SubTitle: "Показывать экран заставки маски перед началом нового чата",
+=======
+      Splash: {
+        Title: "Экран заставки маски",
+        SubTitle: "Показывать экран заставки маски перед началом нового чата",
+      },
+>>>>>>> upstream/main
     },
     Prompt: {
       Disable: {
@@ -118,11 +137,15 @@ const ru: PartialLocaleType = {
       SubTitle:
         "Будет сжимать, если длина несжатых сообщений превышает указанное значение",
     },
+<<<<<<< HEAD
     Token: {
       Title: "API ключ",
       SubTitle: "Используйте свой ключ, чтобы игнорировать лимит доступа",
       Placeholder: "API ключ OpenAI",
     },
+=======
+
+>>>>>>> upstream/main
     Usage: {
       Title: "Баланс аккаунта",
       SubTitle(used: any, total: any) {
@@ -132,11 +155,15 @@ const ru: PartialLocaleType = {
       Check: "Проверить",
       NoAccess: "Введите API ключ, чтобы проверить баланс",
     },
+<<<<<<< HEAD
     AccessCode: {
       Title: "Код доступа",
       SubTitle: "Контроль доступа включен",
       Placeholder: "Требуется код доступа",
     },
+=======
+
+>>>>>>> upstream/main
     Model: "Модель",
     Temperature: {
       Title: "Температура",
@@ -184,6 +211,12 @@ const ru: PartialLocaleType = {
   Plugin: {
     Name: "Плагин",
   },
+<<<<<<< HEAD
+=======
+  FineTuned: {
+    Sysmessage: "Вы - ассистент, который",
+  },
+>>>>>>> upstream/main
   Mask: {
     Name: "Маска",
     Page: {

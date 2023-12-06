@@ -10,7 +10,11 @@ case "$(uname -s)" in
         exit 1
       fi
     else
+<<<<<<< HEAD
       if [[ ! "$(cat /etc/*-release | grep '^ID=')" =~ ^(ID=\"ubuntu\")|(ID=\"centos\")|(ID=\"arch\")$ ]]; then
+=======
+      if [[ !"$(cat /etc/*-release | grep '^ID=')" =~ ^(ID=\"ubuntu\")|(ID=\"centos\")|(ID=\"arch\")|(ID=\"debian\")$ ]]; then
+>>>>>>> upstream/main
         echo "Unsupported Linux distribution."
         exit 1
       fi
@@ -32,6 +36,12 @@ if ! command -v node >/dev/null || ! command -v git >/dev/null || ! command -v y
       if [[ "$(cat /etc/*-release | grep '^ID=')" = "ID=ubuntu" ]]; then
         sudo apt-get update
         sudo apt-get -y install nodejs git yarn
+<<<<<<< HEAD
+=======
+      elif [[ "$(cat /etc/*-release | grep '^ID=')" = "ID=debian" ]]; then
+        sudo apt-get update
+        sudo apt-get -y install nodejs git yarn
+>>>>>>> upstream/main
       elif [[ "$(cat /etc/*-release | grep '^ID=')" = "ID=centos" ]]; then
         sudo yum -y install epel-release
         sudo yum -y install nodejs git yarn

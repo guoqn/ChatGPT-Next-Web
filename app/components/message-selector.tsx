@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
+=======
+import { useEffect, useMemo, useState } from "react";
+>>>>>>> upstream/main
 import { ChatMessage, useAppConfig, useChatStore } from "../store";
 import { Updater } from "../typing";
 import { IconButton } from "./button";
@@ -51,9 +55,15 @@ function useShiftRange() {
 }
 
 export function useMessageSelector() {
+<<<<<<< HEAD
   const [selection, setSelection] = useState(new Set<number>());
   const updateSelection: Updater<Set<number>> = (updater) => {
     const newSelection = new Set<number>(selection);
+=======
+  const [selection, setSelection] = useState(new Set<string>());
+  const updateSelection: Updater<Set<string>> = (updater) => {
+    const newSelection = new Set<string>(selection);
+>>>>>>> upstream/main
     updater(newSelection);
     setSelection(newSelection);
   };
@@ -65,30 +75,64 @@ export function useMessageSelector() {
 }
 
 export function MessageSelector(props: {
+<<<<<<< HEAD
   selection: Set<number>;
   updateSelection: Updater<Set<number>>;
+=======
+  selection: Set<string>;
+  updateSelection: Updater<Set<string>>;
+>>>>>>> upstream/main
   defaultSelectAll?: boolean;
   onSelected?: (messages: ChatMessage[]) => void;
 }) {
   const chatStore = useChatStore();
   const session = chatStore.currentSession();
   const isValid = (m: ChatMessage) => m.content && !m.isError && !m.streaming;
+<<<<<<< HEAD
   const messages = session.messages.filter(
     (m, i) =>
       m.id && // message must have id
       isValid(m) &&
       (i >= session.messages.length - 1 || isValid(session.messages[i + 1])),
+=======
+  const allMessages = useMemo(() => {
+    let startIndex = Math.max(0, session.clearContextIndex ?? 0);
+    if (startIndex === session.messages.length - 1) {
+      startIndex = 0;
+    }
+    return session.messages.slice(startIndex);
+  }, [session.messages, session.clearContextIndex]);
+
+  const messages = useMemo(
+    () =>
+      allMessages.filter(
+        (m, i) =>
+          m.id && // message must have id
+          isValid(m) &&
+          (i >= allMessages.length - 1 || isValid(allMessages[i + 1])),
+      ),
+    [allMessages],
+>>>>>>> upstream/main
   );
   const messageCount = messages.length;
   const config = useAppConfig();
 
   const [searchInput, setSearchInput] = useState("");
+<<<<<<< HEAD
   const [searchIds, setSearchIds] = useState(new Set<number>());
   const isInSearchResult = (id: number) => {
     return searchInput.length === 0 || searchIds.has(id);
   };
   const doSearch = (text: string) => {
     const searchResults = new Set<number>();
+=======
+  const [searchIds, setSearchIds] = useState(new Set<string>());
+  const isInSearchResult = (id: string) => {
+    return searchInput.length === 0 || searchIds.has(id);
+  };
+  const doSearch = (text: string) => {
+    const searchResults = new Set<string>();
+>>>>>>> upstream/main
     if (text.length > 0) {
       messages.forEach((m) =>
         m.content.includes(text) ? searchResults.add(m.id!) : null,
@@ -176,6 +220,11 @@ export function MessageSelector(props: {
       <div className={styles["messages"]}>
         {messages.map((m, i) => {
           if (!isInSearchResult(m.id!)) return null;
+<<<<<<< HEAD
+=======
+          const id = m.id ?? i;
+          const isSelected = props.selection.has(id);
+>>>>>>> upstream/main
 
           return (
             <div
@@ -185,7 +234,10 @@ export function MessageSelector(props: {
               key={i}
               onClick={() => {
                 props.updateSelection((selection) => {
+<<<<<<< HEAD
                   const id = m.id ?? i;
+=======
+>>>>>>> upstream/main
                   selection.has(id) ? selection.delete(id) : selection.add(id);
                 });
                 onClickIndex(i);
@@ -195,7 +247,14 @@ export function MessageSelector(props: {
                 {m.role === "user" ? (
                   <Avatar avatar={config.avatar}></Avatar>
                 ) : (
+<<<<<<< HEAD
                   <MaskAvatar mask={session.mask} />
+=======
+                  <MaskAvatar
+                    avatar={session.mask.avatar}
+                    model={m.model || session.mask.modelConfig.model}
+                  />
+>>>>>>> upstream/main
                 )}
               </div>
               <div className={styles["body"]}>
@@ -206,6 +265,13 @@ export function MessageSelector(props: {
                   {m.content}
                 </div>
               </div>
+<<<<<<< HEAD
+=======
+
+              <div className={styles["checkbox"]}>
+                <input type="checkbox" checked={isSelected}></input>
+              </div>
+>>>>>>> upstream/main
             </div>
           );
         })}
